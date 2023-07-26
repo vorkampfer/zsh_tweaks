@@ -42,7 +42,7 @@ This is very basic bash scripts anyone can write, but I find them useful so I am
 ### unlock_root.sh
 1. This file is the counterpart to the lock_root.sh. Simply run this script when you want to unlock the above mentioned files.
 2. Usage: just type unlock_root.sh in the terminal, if in $PATH, or cd into the directory where you have the script and type: root@debian:~# ./unlock_root.sh
-## You can send me your Github link or inquires to francescoppolla@protonmail.com
+##### You can send me your Github link or inquires to francescoppolla@protonmail.com
     
 
 
