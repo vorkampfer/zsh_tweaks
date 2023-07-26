@@ -1,5 +1,8 @@
 # I know I can make this shorter but it works
-# Safely delete the common world writable directories
+# Warning you can lock yourself out of your system!
+# You can use the counterpart script unlock_root.sh or do it manually
+# You can add bin bash comment but it isn't necessary to run
+# Recommend using a zsh shell with this because when it locks the shell it assumes zsh
 
 if [ -f "/etc/passwd" ]; then
 	echo "Attempting to lock down the ROOT account..."
@@ -18,6 +21,8 @@ else
 	echo "Locking the ROOT SHELL failed."
 	head -1 /etc/passwd
 fi
+
+sleep 2
 
 if [ -f "/etc/passwd" ]; then
 	echo "Attempting to make the PASSWD file immutable..."
