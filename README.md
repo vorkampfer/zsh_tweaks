@@ -4,7 +4,7 @@ This is very basic bash scripts anyone can write, but I find them useful so I am
 
 ### How to execute bash scripts from anywhere in a secure method to automate life in the terminal. Of course, the word 'secure' is a loaded term. So be careful.  
 ### Security is up to the end user. I am not responsible if you break you install.
-# WARNING: The lock_root.sh script can lock you out of your computer if you don't understand how it works. Also if you lose your passwords good luck trying to get back in your system.
+## WARNING: The lock_root.sh script can lock you out of your computer if you don't understand how it works. Also if you lose your passwords good luck trying to get back in your system.
 ### Usage:
 1. To use the scripts simply download them or copy the raw to file_name.sh
 2. add the folder you store these bash scripts in to your $PATH
@@ -42,7 +42,7 @@ This is very basic bash scripts anyone can write, but I find them useful so I am
 ### unlock_root.sh
 1. This file is the counterpart to the lock_root.sh. Simply run this script when you want to unlock the above mentioned files.
 2. Usage: just type unlock_root.sh in the terminal, if in $PATH, or cd into the directory where you have the script and type: root@debian:~# ./unlock_root.sh
-# If you have better ways of securing your linux box I would love to hear from you. You can send me your Github link or inquires to francescoppolla@protonmail.com
+## You can send me your Github link or inquires to francescoppolla@protonmail.com
     
 
 
