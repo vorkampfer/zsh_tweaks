@@ -1,12 +1,19 @@
+# Get nice autocompletion functionality in zsh in Arch/BlackArch/Manjaro
+# If you have quetions RTW https://wiki.archlinux.org/title/Zsh
+# This is the wiki for zsh-autosuggestions https://wiki.archlinux.org/title/Zsh#Fish-like_syntax_highlighting_and_autosuggestions
 
 ### Install the following through pacman
 1. sudo pacman -S zsh-autosuggestions
 2. sudo pacman -S zsh-syntax-highlighting
 
-### Install the autocomplete through Yay
-1. yay -S zsh-autocomplete 
-2. enter enter for defaults
-3. You can also locate the files using mlocate
+### Install the autocomplete in AUR
+1. Do a search in yay for zsh-autocomplete
+2. yay -Ss zsh-autocomplete
+3. You should see zsh-autocomplete-git (That is the one that works good for me)
+4. Install it through yay
+yay -S zsh-autocomplete 
+enter enter for defaults
+ You can also locate the files using mlocate
 
 ### Add these 3 lines to the bottom of your ~/.zshrc file
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
