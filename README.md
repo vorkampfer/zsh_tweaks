@@ -41,7 +41,12 @@ This is very basic bash scripts anyone can write, but I find them useful so I am
 
 ### unlock_root.sh
 1. This file is the counterpart to the lock_root.sh. Simply run this script when you want to unlock the above mentioned files.
-2. Usage: just type unlock_root.sh in the terminal, if in $PATH, or cd into the directory where you have the script and type: root@debian:~# ./unlock_root.sh
+2. Usage: just type unlock_root.sh in the terminal, if in $PATH, or cd into the directory where you pute the script and type: root@debian:~# ./unlock_root.sh
+### my parrot .zshrc
+1. I uploaded this .zshrc file mostly because I get tired of restoring it from backup.
+2. I install Oh-My-Zsh and then add that if statement in the .zshrc file. It really improves the autocompletion.
+3. Of course you need to install zsh-autosuggestions, zsh-syntax-highlighting, and zsh-autocomplete for it to work,
+4. and them source them in your .zshrc file.
 ##### You can send me your Github link or inquires to francescoppolla@protonmail.com
     
 
