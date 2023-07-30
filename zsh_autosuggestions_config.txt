@@ -1,0 +1,20 @@
+
+### Install the following through pacman
+1. sudo pacman -S zsh-autosuggestions
+2. sudo pacman -S zsh-syntax-highlighting
+
+### Install the autocomplete through Yay
+1. yay -S zsh-autocomplete 
+2. enter enter for defaults
+3. You can also locate the files using mlocate
+
+### Add these 3 lines to the bottom of your ~/.zshrc file
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+
+# This if comand below method does NOT work. It will mess up your zsh terminal.
+if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+   . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
+   ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#ff00ff'
+fi
