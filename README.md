@@ -47,6 +47,9 @@ This is very basic bash scripts anyone can write, but I find them useful so I am
 2. I install Oh-My-Zsh and then add that if statement in the .zshrc file. It really improves the autocompletion.
 3. Of course you need to install zsh-autosuggestions, zsh-syntax-highlighting, and zsh-autocomplete for it to work,
 4. and them source them in your .zshrc file.
+### zsh_autosuggestions_config.txt (ARCH zsh)
+1. This file is for Arch and BlackArch, but it works in Debian/Ubuntu as well
+2. The files are source in a different location
 ##### You can send me your Github link or inquires to francescoppolla@protonmail.com
     
 
