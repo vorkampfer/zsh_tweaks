@@ -11,9 +11,9 @@
 2. yay -Ss zsh-autocomplete
 3. You should see zsh-autocomplete-git (That is the one that works good for me)
 4. Install it through yay
-yay -S zsh-autocomplete 
-enter enter for defaults
- You can also locate the files using mlocate
+5. yay -S zsh-autocomplete 
+6. enter enter for defaults
+7. You can also locate the files using mlocate
 
 ### Add these 3 lines to the bottom of your ~/.zshrc file
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
