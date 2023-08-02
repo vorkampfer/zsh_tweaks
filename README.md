@@ -50,6 +50,8 @@ This is very basic bash scripts anyone can write, but I find them useful so I am
 ### zsh_autosuggestions_config.txt (ARCH zsh)
 1. This file is for Arch and BlackArch, but it works in Debian/Ubuntu as well
 2. The files are source in a different location
+## Hack The Box (I highly recommend it)   
+[](https://referral.hackthebox.com/mzw8ktX)
 ##### You can send me your Github link or inquires to francescoppolla@protonmail.com
     
 
