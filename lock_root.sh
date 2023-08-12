@@ -1,9 +1,12 @@
-# I know I can make this shorter but it works
-# Warning you can lock yourself out of your system!
-# You can use the counterpart script unlock_root.sh or do it manually
+# I know I can make this shorter but it works and it is easy to edit if statements.
+# Warning you can lock yourself out of your system! Make sure you have written down all passwords to access system.
+# To UNLOCK simply run the counterpart script unlock_root.sh or do it manually
 # You can add bin bash comment but it isn't necessary to run
 # Recommend using a zsh shell with this because when it locks the shell it assumes zsh
 
+
+echo "LOCKING DOWN ROOT ACCOUNT, ROOT SHELL, SHADOW FILE, PASSWD FILE!"
+sleep 3
 if [ -f "/etc/passwd" ]; then
 	echo "Attempting to lock down the ROOT account..."
 	sudo passwd -l root
@@ -22,7 +25,7 @@ else
 	head -1 /etc/passwd
 fi
 
-sleep 2
+sleep 1
 
 if [ -f "/etc/passwd" ]; then
 	echo "Attempting to make the PASSWD file immutable..."
