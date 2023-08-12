@@ -1,0 +1,3 @@
+# I am going to make this script better but you can also just make this an alias
+# to do this with an alias (alias hgrep='cat ~/.zsh_history | grep -i') remove the tuples()
+
