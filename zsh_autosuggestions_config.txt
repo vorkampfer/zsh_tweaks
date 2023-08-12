@@ -13,15 +13,13 @@
 4. Install it through yay
 5. yay -S zsh-autocomplete 
 6. enter enter for defaults
-7. You can also locate the files using mlocate
 
-### Add these 3 lines to the bottom of your ~/.zshrc file
+
+### I recommend to install oh-my-zsh before you add these lines to the bottom of ~/.zshrc
+### You can also locate the files using mlocate (to install $ sudo pacman -S mlocate) Then do ($ sudo updatedb) to update mlocate database.
+
+### Add these 4 lines to the bottom of your ~/.zshrc file
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-
-# This if comand below method does NOT work. It will mess up your zsh terminal.
-if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-   . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
-   ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#ff00ff'
-fi
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#ff00ff'
