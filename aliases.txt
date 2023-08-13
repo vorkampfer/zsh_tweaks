@@ -1,0 +1,4 @@
+alias hgrep='cat ~/.zsh_history | grep -i'
+alias torcheck='wget -qO - https://check.torproject.org | grep -i congrat | sort -u'
+alias ls='exa -al --color=always --group-directories-first'
+alias defaultscan='nmap -sV -Pn -T2 -A -oN nmap/defaultscan.nmap -vvv'
