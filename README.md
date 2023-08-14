@@ -1,6 +1,6 @@
 # zsh_tweaks
-This some zsh bash scripts on tweaks to improve my terminal life using zsh and bash. Applies to Debian/Ubuntu/Arch distros.
-This is very basic bash scripts anyone can write, but I find them useful so I am adding them here for public use. Enjoy make better version etc...
+Here are some zsh bash scripts on tweaks to improve my terminal life using zsh and bash. Applies to Arch distros, but will probrably work on Debian as well.
+This is very basic bash scripts anyone can write, but I find them useful so I am adding them here for public use. Enjoy make better versions etc...
 
 ### How to execute bash scripts from anywhere in a secure method to automate life in the terminal. Of course, the word 'secure' is a loaded term. So be careful.  
 ### Security is up to the end user. I am not responsible if you break you install.
