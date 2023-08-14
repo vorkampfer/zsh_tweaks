@@ -1,13 +1,15 @@
 # This script is to be run with the other lock_root.sh script
 # Run this script with root privileges. Automate and save time ;)
 
-
-echo "CHECKING THE ROOT ACCOUNT AS WELL AS ATTRIBUTES AND PERMISSIONS OF SENSITIVE FILES ON THIS MACHINE................."
+set -eo pipefail
+echo "CHECKING THE ROOT ACCOUNT AS WELL AS ATTRIBUTES AND PERMISSIONS OF SENSITIVE FILES ON THIS MACHINE..."
 sleep 3
 if [ -f "/etc/passwd" ]; then
 	echo "*********************************************************CHECKING WHICH ACCOUNTS HAVE SHELL ACCESS..."
 	head -1 /etc/passwd; cat /etc/passwd | grep -i sh$
-	echo "*********************************************************LOCKED = ! UNLOCKED = $"
+	echo "*********************************************************Checking ROOT GROUP..."
+	getent group root
+	echo "*********************************************************ROOT ACCOUNT LOCKED :! UNLOCKED :$"
 	sudo head -1 /etc/shadow | cut -c 1-6
 else
 	echo "Could not get information on Shadow File."
@@ -74,7 +76,7 @@ else
 	ls -lahr /dev/mqueue
 fi
 sleep 1
-echo "*************************************************************THESE ARE ALL THE WORLD WRITABLE DIRECTORIES ON THIS MACHINE"
+echo "**********************************************************THESE ARE ALL THE WORLD WRITABLE DIRECTORIES ON THIS MACHINE"
 if [ -f "/etc/passwd" ]; then
 	sudo find / -maxdepth 3 -type d -perm -777
 else
@@ -82,4 +84,28 @@ else
 	sudo find / -maxdepth 3 -type d -perm -777
 fi
 
+if [ -f "/etc/passwd" ]; then
+	echo "*********************************************************MD5 SUM HASH FOR PASSWD FILE IS..."
+	echo -n /etc/passwd | md5sum
+else
+	echo "failed to output hash of PASSWD file."
+fi
 
+if [ -f "/etc/shadow" ]; then
+	echo "*********************************************************MD5 SUM HASH FOR SHADOW FILE IS..."
+	echo -n /etc/shadow | md5sum
+else
+	echo "failed to output hash of SHADOW file."
+fi
+if [ -f "/etc/sudoers" ]; then
+	echo "*********************************************************MD5 SUM HASH FOR SUDOERS FILE IS..."
+	echo -n /etc/sudoers | md5sum
+else
+	echo "failed to output hash of SUDOERS file."
+fi
+if [ -f "/etc/pacman.conf" ]; then
+	echo "*********************************************************MD5 SUM HASH FOR PACMAN.CONF FILE IS..."
+	echo -n /etc/pacman.conf | md5sum
+else
+	echo "failed to output hash of pacman.conf file."
+fi
