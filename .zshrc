@@ -1,75 +1,4 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-# Export PATH$
-export PATH="$PATH:/home/ian/bashscr1pt1ngn3rd"
-# Auto completion / suggestion
-if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
-   . /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh 
-   ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#ff00ff'
-fi
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-
-# Fish like syntax highlighting
-# Requires "zsh-syntax-highlighting" from apt
-# Save type history for completion and easier life
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-setopt appendhistory
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="maran"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
+# I have some cool aliases for nmap and I have oh-my-zsh installed first
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # You can set one of the optional three formats:
@@ -115,3 +44,64 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias defaultscan='nmap -sV -Pn -A -T2 -oN nmap/default.nmap -vvv'
+alias allscan='nmap -Pn -sVC -p- -n --min-rate 500 -oN nmap/allscan.nmap -vvv'
+alias vulnscan='nmap -Pn --script "vuln" --min-rate 500 --open -oN nmap/vuln.nmap -vvv'
+alias stealthscan='sudo nmap -f --mtu 24 -Pn -n --open -sS -oN nmap/stealthscan.nmap -vvv'
+alias portzscan='nmap -A -Pn -n -vvv -oN nmap/portzscan.nmap -p'
+alias fastscan='nmap -p- -sV --min-rate 5000 -vvv -n -Pn -oN nmap/fastscan.nmap'
+alias pyserver='python3 -m http.server 8000'
+alias superfastscan='nmap -p- --min-rate 10000 -oN nmap/superfast.nmap 10.10.10.184'
+alias ftpanonscan='nmap --script ftp-anon -vvv -p21'
+alias openscan='sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn -oN nmap/openscan.nmap' 
+alias ls='exa -al --color=always --group-directories-first'
+alias hgrep='cat ~/.zsh_history | grep -i'
+alias gitcat='bat --theme GitHub -p'
+alias bcat='batcat -l ruby --paging=never'
+alias jbat='bat -l java --paging=never -p'
+alias rbat='bat -l ruby --paging=never -p'
+alias sourcez='source ~/.zshrc'
+#alias pkgquery='LC_ALL=C pacman -Qi | awk '/^Name/{name=$3} /^Installed Size/{print $4$5, name}' | sort -h | grep -i'
+export portz="$(cat ~/wackdab0x/nmap/superfast.nmap | grep '^[0-9]' | cut -d '/' -f 1 | tr '\n' ',' | sed 's/,$//g')"
+####################################################
+####################################################
+####################################################
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+####################################################
+####################################################
+####################################################
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#ff00ff'
+export PATH="$PATH:/home/pepe/bazhScR1pT1nG"
+####################################################
+####################################################
+#####################################################
+# Created by `pipx` on 2023-08-14 02:11:12
+export PATH="$PATH:/home/pepe/.local/bin:/sbin/home/pepe/.local/bin"
+
+# /home/pepe/.local/bin
+export GEM_HOME="$(gem env user_gemhome)"
+export PATH="$PATH:$GEM_HOME/bin"
+#export PROMPT_COMMAND='echo -en "\033]0; $("pwd") \a"'
+#export DEFAULT_USER=$USER
+###############################################################################
+###############################################################################
+### The HISTORY settings below go in ~/.oh-my-zsh/lib/history.zsh
+## History file configuration
+[ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh_history"
+[ "$HISTSIZE" -lt 50000 ] && HISTSIZE=50000
+[ "$SAVEHIST" -lt 10000 ] && SAVEHIST=10000
+
+## History command configuration
+setopt extended_history       # record timestamp of command in HISTFILE
+setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_dups       # ignore duplicated commands history list
+setopt hist_ignore_space      # ignore commands that start with space
+setopt hist_verify            # show command with history expansion to user before running it
+setopt share_history          # share command history data
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=1000000
+export SAVEHIST=1000000
+setopt EXTENDED_HISTORY
