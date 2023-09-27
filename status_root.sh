@@ -1,6 +1,7 @@
 # This script is to be run with the other lock_root.sh script
 # Run this script with root privileges. Automate and save time ;)
-
+# You can add MD5 checks of your favorite files like nishang seclists etc to make sure you have them quickly
+# and if they have been changed you will know it by the different hash
 set -eo pipefail
 echo "CHECKING THE ROOT ACCOUNT AS WELL AS ATTRIBUTES AND PERMISSIONS OF SENSITIVE FILES ON THIS MACHINE..."
 sleep 3
@@ -108,4 +109,11 @@ if [ -f "/etc/pacman.conf" ]; then
 	echo -n /etc/pacman.conf | md5sum
 else
 	echo "failed to output hash of pacman.conf file."
+fi
+
+if [ -f "/usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt.tar.gz" ]; then
+	echo "*********************************************************MD5 SUM HASH FOR rockyou.txt.tar.gz FILE IS..."
+	echo -n /usr/share/seclists/Passwords/Leaked-Databases/rockyou.txt.tar.gz | md5sum
+else
+	echo "failed to output hash of rockyou.txt.tar.gz file. Is the file missing?"
 fi
