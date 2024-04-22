@@ -29,14 +29,14 @@ alias ibat='bat -A ruby'
 alias sourcez='source ~/.zshrc'
 alias synctimezone='sudo timedatectl set-timezone Europe/Stockholm && sudo timedatectl status'
 alias toolsearch='pacman -Sgg | grep blackarch | cut -d' ' -f2 | sort -u | grep -i'
-alias copyportz='echo "${yellowColour}Ports have been copied to the clipboard! ${endColour}" && echo $openportz > /home/shadow42/hax0r1if3/nmap/nmapclip.txt && cat /home/shadow42/hax0r1if
+alias copyportz='echo "${yellowColour}Ports have been copied to the clipboard! ${endColour}" && echo $openportz > /home/user/hackthebox/nmap/nmapclip.txt && cat /home/shadow42/hax0r1if
 3/nmap/nmapclip.txt | clipcopy'
 alias obs='obsidian &> /dev/null & disown'
 alias noptrix='sudo pacman-key --recv-keys F9A6E68A711354D84A9B91637533BAFE69A25079 && sudo pacman-key --lsign-key F9A6E68A711354D84A9B91637533BAFE69A25079'
 alias refreshkeyz='sudo pacman-key --refresh-keys'
 alias hexadecimalConvert='cat /home/shadow42/Documents/convertHexNumbers.txt'
 alias orphanlist='pacman -Qqd | pacman -Rsu --print -'
-alias bibleverse='shuf -n 1 /home/shadow42/Documents/bible_verses.txt | head -1'
+alias bibleverse='shuf -n 1 /home/hax0r/Documents/bible_verses.txt | head -1'
 alias killGhost='sudo systemctl stop tor.service && source torsocks off'
 alias mytun0='ifconfig | grep "inet 10"'
 alias dependz='pacman --sync --info'
@@ -44,8 +44,8 @@ alias rdependz='pacman --sync --info --info'
 #alias hjohn='hgrep john | tail -40'
 
 #alias pkgquery='LC_ALL=C pacman -Qi | awk '/^Name/{name=$3} /^Installed Size/{print $4$5, name}' | sort -h | grep -i'
-#export portz="$(cat /home/pablo/hackdab0x/nmap/superfast.nmap | grep '^[0-9]' | cut -d '/' -f 1 | tr '\n' ',' | sed 's/,$//g')"
-export openportz="$(cat /home/shadow42/hax0r1if3/nmap/openscan.nmap | grep '^[0-9]' | cut -d '/' -f 1 | tr '\n' ',' | sed 's/,$//g')"
+#export portz="$(cat /home/user/hackthebox/nmap/superfast.nmap | grep '^[0-9]' | cut -d '/' -f 1 | tr '\n' ',' | sed 's/,$//g')"
+export openportz="$(cat /home/user/hackthebox/nmap/openscan.nmap | grep '^[0-9]' | cut -d '/' -f 1 | tr '\n' ',' | sed 's/,$//g')"
 # export batr="$('bat -l ruby --paging=never -p')"  # Refuses to export this bat command to a variable
 # export target="10.10.10.203"
 ####################################################
@@ -64,7 +64,7 @@ export PATH="$PATH:/home/pepe/bazhScR1pT1nG"
 ####################################################
 #####################################################
 # Created by `pipx` on 2023-08-14 02:11:12
-export PATH="$PATH:/home/pepe/.local/bin:/sbin/home/pepe/.local/bin"
+export PATH="$PATH:/home/user_name/.local/bin:/sbin/home/user_name/.local/bin"
 # export PATH="$PATH:/home/pepe/python_projects"
 
 # /home/pepe/.local/bin
