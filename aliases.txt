@@ -1,10 +1,7 @@
 #### I keep my random aliases feel free to use
 
-alias hgrep='cat ~/.zsh_history | grep -i'
-alias checktor="wget -qO - https://check.torproject.org | grep -i congrat | sort -u| sed -r 's/browser/terminal/g'"
-alias ls='exa -al --color=always --group-directories-first'
-alias defaultscan='nmap -sV -Pn -T2 -A -oN nmap/defaultscan.nmap -vvv'
-
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -15,18 +12,42 @@ alias stealthscan='sudo nmap -f --mtu 24 -Pn -n --open -sS -oN nmap/stealthscan.
 alias portzscan='nmap -A -Pn -n -vvv -oN nmap/portzscan.nmap -p'
 alias fastscan='nmap -p- -sV --min-rate 5000 -vvv -n -Pn -oN nmap/fastscan.nmap'
 alias pyserver='python3 -m http.server 8000'
-alias superfastscan='nmap -p- --min-rate 10000 -oN nmap/superfast.nmap 10.10.10.184'
+alias superfastscan='nmap -p- --min-rate 5000 -n -Pn -oN nmap/superfast.nmap -vvv'
+alias ipv6scan='sudo nmap -6 --min-rate 500 -oN nmap/ipv6.nmap -vvv'
 alias ftpanonscan='nmap --script ftp-anon -vvv -p21'
-alias openscan='sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn -oN nmap/openscan.nmap' 
-alias ls='exa -al --color=always --group-directories-first'
-alias hgrep='cat ~/.zsh_history | grep -i'
-alias gitcat='bat --theme GitHub -p'
-alias bcat='batcat -l ruby --paging=never'
+alias openscan='sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn -oN nmap/openscan.nmap'
+alias ls='exa -alhg --color=always --group-directories-first'
+# exa --long --header --group
+alias hgrep='echo "${yellowColour}HISTORY SEARCH: NOT Case-Sensitive${endColour}" && echo && cat ~/.zsh_history | grep -i'
+alias hgrepc='echo "${yellowColour}CASE SENSITIVE HISTORY SEARCH${endColour}" && echo && cat ~/.zsh_history | grep'
+alias gitcat='bat --theme GitHub --paging=never -p'
+alias bcat='bat -l bash --paging=never -p'
+alias ncat='bat -l ruby'
 alias jbat='bat -l java --paging=never -p'
 alias rbat='bat -l ruby --paging=never -p'
+alias ibat='bat -A ruby'
 alias sourcez='source ~/.zshrc'
+alias synctimezone='sudo timedatectl set-timezone Europe/Stockholm && sudo timedatectl status'
+alias toolsearch='pacman -Sgg | grep blackarch | cut -d' ' -f2 | sort -u | grep -i'
+alias copyportz='echo "${yellowColour}Ports have been copied to the clipboard! ${endColour}" && echo $openportz > /home/shadow42/hax0r1if3/nmap/nmapclip.txt && cat /home/shadow42/hax0r1if
+3/nmap/nmapclip.txt | clipcopy'
+alias obs='obsidian &> /dev/null & disown'
+alias noptrix='sudo pacman-key --recv-keys F9A6E68A711354D84A9B91637533BAFE69A25079 && sudo pacman-key --lsign-key F9A6E68A711354D84A9B91637533BAFE69A25079'
+alias refreshkeyz='sudo pacman-key --refresh-keys'
+alias hexadecimalConvert='cat /home/shadow42/Documents/convertHexNumbers.txt'
+alias orphanlist='pacman -Qqd | pacman -Rsu --print -'
+alias bibleverse='shuf -n 1 /home/shadow42/Documents/bible_verses.txt | head -1'
+alias killGhost='sudo systemctl stop tor.service && source torsocks off'
+alias mytun0='ifconfig | grep "inet 10"'
+alias dependz='pacman --sync --info'
+alias rdependz='pacman --sync --info --info'
+#alias hjohn='hgrep john | tail -40'
+
 #alias pkgquery='LC_ALL=C pacman -Qi | awk '/^Name/{name=$3} /^Installed Size/{print $4$5, name}' | sort -h | grep -i'
-export portz="$(cat ~/wackdab0x/nmap/superfast.nmap | grep '^[0-9]' | cut -d '/' -f 1 | tr '\n' ',' | sed 's/,$//g')"
+#export portz="$(cat /home/pablo/hackdab0x/nmap/superfast.nmap | grep '^[0-9]' | cut -d '/' -f 1 | tr '\n' ',' | sed 's/,$//g')"
+export openportz="$(cat /home/shadow42/hax0r1if3/nmap/openscan.nmap | grep '^[0-9]' | cut -d '/' -f 1 | tr '\n' ',' | sed 's/,$//g')"
+# export batr="$('bat -l ruby --paging=never -p')"  # Refuses to export this bat command to a variable
+# export target="10.10.10.203"
 ####################################################
 ####################################################
 ####################################################
@@ -44,12 +65,34 @@ export PATH="$PATH:/home/pepe/bazhScR1pT1nG"
 #####################################################
 # Created by `pipx` on 2023-08-14 02:11:12
 export PATH="$PATH:/home/pepe/.local/bin:/sbin/home/pepe/.local/bin"
+# export PATH="$PATH:/home/pepe/python_projects"
 
 # /home/pepe/.local/bin
 export GEM_HOME="$(gem env user_gemhome)"
 export PATH="$PATH:$GEM_HOME/bin"
 #export PROMPT_COMMAND='echo -en "\033]0; $("pwd") \a"'
 #export DEFAULT_USER=$USER
+
+# Exporting to a permanent variable
+1. I can export 'bat -l ruby --paging=never -p' to $batr so that I do not have to type it everytime I want to use it. I already have it as an alias but exporting it as a variable offers more flexibility i.e. bashscripting etc...
+2. FAIL for some reason zsh will not recognize this bat command as a command for some reason.
+
+####################################################
+####################################################
+####################################################
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+####################################################
+####################################################
+####################################################
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#ff00ff'
+export PATH="$PATH:/home/pepe/bazhScR1pT1nG"
+####################################################
+####################################################
+#####################################################
+
 ###############################################################################
 ###############################################################################
 ### The HISTORY settings below go in ~/.oh-my-zsh/lib/history.zsh
