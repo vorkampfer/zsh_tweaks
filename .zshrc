@@ -11,8 +11,10 @@ grayColour="\e[0;37m\033[1m"
 
 #neofetch
 # /usr/bin/kitty +kitten icat /home/shadow42/motivational_wallpapers_quotes/bless_them_that_spitefully_use_you.png
-shuf -n 1 /home/shadow42/Documents/bible_verses_mixed.txt | head -1
+echo -e "${grayColour}Bible verse: ${endColour}" && shuf -n 1 /home/shadow42/Documents/bible_verses_mixed.txt | head -1
 /usr/bin/python2.7 /home/shadow42/python_projects/color_banner10.py
+todayDate=$(date | cut --bytes 3-30 | xargs | grep .)
+chicagoDate=$(TZ=America/Chicago date | cut --bytes 3-30 | xargs | grep .)
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -109,7 +111,7 @@ source $ZSH/oh-my-zsh.sh
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
+# For a full list of active aliases, run `alias_list`.
 #
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -133,33 +135,76 @@ alias openscan='sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn -oN nmap/op
 alias ls='exa -alhg --color=always --group-directories-first'
 # exa --long --header --group
 alias hgrep='echo "${yellowColour}HISTORY SEARCH: NOT Case-Sensitive${endColour}" && echo && cat ~/.zsh_history | grep -i'
+alias hgrepb='echo "${yellowColour}HISTORY SEARCH of BACKUP HISTORY FILE.${endColour} ${redColour} CASE SENSITIVE ${endColour}" && echo && cat ~/Documents/zsh_history_backup | grep'
 alias hgrepc='echo "${yellowColour}CASE SENSITIVE HISTORY SEARCH${endColour}" && echo && cat ~/.zsh_history | grep'
+alias ugrep='echo "${yellowColour}HISTORY SEARCH of UNIQUE HISTORY FILE.${endColour} ${redColour} CASE SENSITIVE ${endColour}" && echo && cat /home/shadow42/Documents/unique_history | grep'
+alias cleanunique='cat /home/shadow42/Documents/zsh_history_backup | sort -u > /home/shadow42/Documents/unique_history'
 alias gitcat='bat --theme GitHub --paging=never -p'
 alias bcat='bat -l bash --paging=never -p'
 alias ncat='bat -l ruby'
 alias jbat='bat -l java --paging=never -p'
 alias rbat='bat -l ruby --paging=never -p'
-alias ibat='bat -A ruby'
+alias qbat='bat -l QML --paging=never -p'
+alias pbat='bat -l Python --paging=never -p'
 alias sourcez='source ~/.zshrc'
-alias synctimezone='sudo timedatectl set-timezone Europe/Stockholm && sudo timedatectl status'
-alias toolsearch='pacman -Sgg | grep blackarch | cut -d' ' -f2 | sort -u | grep -i'
-alias copyportz='echo "${yellowColour}Ports have been copied to the clipboard! ${endColour}" && echo $openportz > /home/shadow42/hax0r1if3/nmap/nmapclip.txt && cat /home/shadow42/hax0r1if3/nmap/nmapclip.txt | clipcopy'
-alias obs='obsidian &> /dev/null & disown'
+alias utctimezone='sudo timedatectl set-timezone UTC && sudo timedatectl status'
+alias stockholmtimezone='sudo timedatectl set-timezone Europe/Stockholm && sudo timedatectl status'
+alias blackarch_toolsearch='pacman -Sgg | grep blackarch | cut -d' ' -f2 | sort -u | grep -i'
+alias copyportz='echo "${yellowColour}Ports have been copied to the clipboard! ${endColour}" && echo $openportz > /home/shadow42/haCk54CrAcK/nmap/nmapclip.txt && cat /home/shadow42/haCk54CrAcK/nmap/nmapclip.txt | clipcopy'
+#alias obs='/home/shadow42/Videos/.vid80s8098d09/DO_NOT_DELETE_83409802/encryptedarchive/Obsidian-1.6.3.AppImage &> /dev/null & disown'
+alias obs='cd ~/Videos/.vid80s8098d09/DO_NOT_DELETE_83409802 && ./Obsidian-1.6.3.AppImage &> /dev/null & disown'
 alias noptrix='sudo pacman-key --recv-keys F9A6E68A711354D84A9B91637533BAFE69A25079 && sudo pacman-key --lsign-key F9A6E68A711354D84A9B91637533BAFE69A25079'
 alias refreshkeyz='sudo pacman-key --refresh-keys'
-alias hexadecimalConvert='cat /home/shadow42/Documents/convertHexNumbers.txt'
-alias orphanlist='pacman -Qqd | pacman -Rsu --print -'
-alias bibleverse='shuf -n 1 /home/shadow42/Documents/bible_verses.txt | head -1'
+alias hexConvert='cat /home/shadow42/Documents/convertHexNumbers.txt'
+alias orphanlist='pacman -Qqd | pacman -Rsu --print - && echo "${yellowColour} Remove the files with this command:${endColour} ${redColour} As root: pacman -Qqd | pacman -Rsu - or as sudo: pacman -Qtdq | sudo pacman -Rns - ${endColour}"'
+alias bible_verse_random='shuf -n 1 /home/shadow42/Documents/bible_verses_mixed.txt | head -1'
 alias killGhost='sudo systemctl stop tor.service && source torsocks off'
 alias mytun0='ifconfig | grep "inet 10"'
-alias dependz='pacman --sync --info'
-alias rdependz='pacman --sync --info --info'
-#alias hjohn='hgrep john | tail -40'
+alias pacman_dependz='pacman --sync --info'
+alias pacman_rdependz='pacman --sync --info --info'
+#alias wolf='/home/shadow42/Videos/.vid80s8098d09/.vid908080808/.vide09098090/.vid987sd98f79s8d79/.vidotore98u0e0e9e0/.videotorinstallhere4/.videosmytor23242/.torupper40249802/.torlower298240980/.t0r9s88dfua9s8dfu/LibreWolf.x86_64.AppImage &> /dev/null & disown'
+alias bakup_history='cat ~/.zsh_history | tail -n 5000 | sort -u >> ~/Documents/zsh_history_backup'
+#alias snippets='echo "${yellowColour}My favorite Snippets of Code. One Liners, Loops, Stuff I can not remember. etc...${endColour}" && cat ~/Documents/fav_snippets.txt | grep -i'
+alias snippets='echo "${yellowColour}My favorite Snippets of Code. One Liners, Loops, Stuff I can not remember. etc...${endColour}" && cat ~/Documents/fav_snippets.txt | sed "s/#/\n/g" | grep -i'
+alias feh_dev_null_usage='feh ~/Pictures/dev_null_stdin_stdout_stderror_dev_null.png &> /dev/null & disown'
+alias feh_ttl_os_identify='feh ~/Pictures/ttl_os_identifier_chart.png &> /dev/null & disown'
+alias bible_mixed_lookup='cat ~/Documents/bible_verses_mixed.txt | grep -i'
+alias lbreak="sed -e 's/^/\n\n/'"
+alias bible_sirachlookup='cat /home/shadow42/Downloads/bible_project/sirach.txt | grep -i'
+alias bible_fullverse_lookup='cat /home/shadow42/Downloads/bible_project/akjv.txt | grep -i'
+alias qml='bat -l QML --paging=never -p'
+alias wordlist_find='echo "${yellowColour} Seclist Wordlist Finder:${endColour} ${redColour} Not Case Sensitive ${endColour}" && cd $HOME && find /usr -name \*.txt\* 2>/dev/null | grep -i'
+alias zsh_hbak_find='cd $HOME && find . -name \*.gz\* 2>/dev/null | grep -iE "master|backup|zsh" | grep -ivE "password|lst|rockyou|docs" | sed "s/^\./\$HOME/g" | bat -l QML --paging=never -p'
+#alias tstart='cd /home/shadow42/Videos/.vid80s8098d09/permtor/tor*/tor-browser && ./start-tor-browser.desktop'
+alias hashexamples='/usr/bin/python3 /home/shadow42/python_projects/hash_examples_udemy.py'
+alias bible_date='echo "Todays date is." && date | sed "s/zo //" | sed "s/ //" && bibleverse'
+alias editsnippets='mousepad ~/Documents/fav_snippets.txt &> /dev/null & disown'
+alias bible_edit_verseMixed='mousepad /home/shadow42/Documents/bible_verses_mixed.txt &> /dev/null & disown'
+alias editLoops='mousepad ~/Documents/FOR_LOOPS_and_WHILE_LOOPS_EXAMPLES.txt &> /dev/null & disown'
+alias feh_dockercheat1='/usr/bin/feh /home/shadow42/Pictures/docker_cheatsheet_1.png &> /dev/null & disown'
+alias editcoolpcnames='mousepad ~/Documents/coolnames_for_computer.txt &> /dev/null & disown'
+alias feh_netexec_authentication='feh ~/Pictures/netexec_same_as_crackmapexec_no_bruteforce_continue_on_success.png &> /dev/null & disown'
+alias feh_bootstrap_blackarch='feh /home/shadow42/Pictures/bootstrap_sh_instructions_blackarch.png &> /dev/null & disown'
+alias zsh_lasthistory="echo '${blueColour} lasthistory + number ${endColour}' && cat ~/.zsh_history | tail -n"
+alias netsniffer="/usr/bin/python3 /home/shadow42/python_projects/hacking_py_tools/sniff_mynetwork.py > /home/shadow42/python_projects/hacking_py_tools/results && cat /home/shadow42/python_projects/hacking_py_tools/results | grep -a 'is reachable'"
+# alias smasher = sed '/^[[:space:]]*$/d' | awk '!($3="")'
+# alias jqclean="jq . | sed 's/\"//g' | tr -d '{}[],' | awk '!($3="")' | sed '/^[[:space:]]*$/d'" <<< zsh doesn't like this alias either
+# alias hjohn='hgrep john | tail -40'
 
-#alias pkgquery='LC_ALL=C pacman -Qi | awk '/^Name/{name=$3} /^Installed Size/{print $4$5, name}' | sort -h | grep -i'
-#export portz="$(cat /home/pablo/hackdab0x/nmap/superfast.nmap | grep '^[0-9]' | cut -d '/' -f 1 | tr '\n' ',' | sed 's/,$//g')"
-export openportz="$(cat /home/shadow42/hax0r1if3/nmap/openscan.nmap | grep '^[0-9]' | cut -d '/' -f 1 | tr '\n' ',' | sed 's/,$//g')"
-# export jqclean="$(jq . | sed 's/\"//g' | tr -d '{}[],' | awk '!($3="")' | sed '/^[[:space:]]*$/d')"
+# alias pkgquery='LC_ALL=C pacman -Qi | awk '/^Name/{name=$3} /^Installed Size/{print $4$5, name}' | sort -h | grep -i'
+# export portz="$(cat /home/pablo/hackdab0x/nmap/superfast.nmap | grep '^[0-9]' | cut -d '/' -f 1 | tr '\n' ',' | sed 's/,$//g')"
+export openportz="$(cat /home/shadow42/haCk54CrAcK/nmap/openscan.nmap | grep '^[0-9]' | cut -d '/' -f 1 | tr '\n' ',' | sed 's/,$//g')"
+# export launchpad=$(cat ~/haCk54CrAcK/nmap/portzscan.nmap | grep -i openssh | cut -c 30-60)
+# export BROWSER="/usr/bin/lynx"
+alias aliases_list='cat /home/shadow42/Documents/aliases_and_variables_list.txt'
+alias tDate='echo "${grayColour}Zulu date & time is: $todayDate ${endColour}" && echo "${turquoiseColour}The CST date & time is: $chicagoDate ${endColour}"'
+alias def_Handler_Syntax='cat ~/python_projects/2million_scanner.py | grep -i -B2 -A11 "scapy"'
+alias shell_upgrade='cat /home/shadow42/Documents/shell_upgrade.txt'
+alias feh_for_loop_syntax='feh for_loop_syntax_structure_example.png &> /dev/null & disown'
+alias feh_termcolor='feh /home/shadow42/Pictures/python_termcolor_color_codes.png &> /dev/null & disown'
+alias editPythonPDB='mousepad ~/Documents/python_pdb_set_trace_debugging_your_python_to_write_better_code.txt &> /dev/null & disown'
+alias lookup_awk='cat ~/Documents/awk_sed_tr_cut_commands_examples.txt | grep -i --color'
+alias lookup_ports='echo "${turquoiseColour}Popular Ports & Protocols: ${endColour}" ; cat Popular_Ports_and_Protocols.md | grep --color -i'
 # export batr="$('bat -l ruby --paging=never -p')"  # Refuses to export this bat command to a variable
 # export target="10.10.10.203"
 ####################################################
@@ -173,7 +218,7 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 ####################################################
 ####################################################
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#ff00ff'
-export PATH="$PATH:/home/shadow42/bashscr1pt1ng"
+export PATH="$PATH:/home/shadow42/bashscr1pt1ng:/home/shadow42/bashscr1pt1ng/bash_practice"
 ####################################################
 ####################################################
 ####################################################
@@ -182,15 +227,16 @@ export PATH="$PATH:/home/shadow42/bashscr1pt1ng"
 #export KEYTIMEOUT=1
 ### More Paths
 # Created by `pipx` on 2023-08-14 02:11:12
-#export PATH="$PATH:/home/pepe/.local/bin:/sbin/home/pepe/.local/bin"
-export PATH="$PATH:/home/shadow42/.local/share/gem/ruby/3.0.0/bin:/home/shadow42/Documents/.obsidian/plugins/obsidian-pandoc"
+export PATH="$PATH:/home/shadow42/.local/bin:/sbin/home/shadow42/.local/bin"
+export PATH="$PATH:/home/shadow42/.local/share/gem/ruby/3.0.0/bin"
+#export PATH="$PATH:/home/shadow42/Documents/.obsidian/plugins/obsidian-pandoci" <<< Adding Obsidian Plugins to Path
 
 # /home/pepe/.local/bin
 export GEM_HOME="$(gem env user_gemhome)"
 export PATH="$PATH:$GEM_HOME/bin"
-#export PROMPT_COMMAND='echo -en "\033]0; $("pwd") \a"'
-#export DEFAULT_USER=$USER
-#export PATH="$PATH:/root/.local/share/gem/ruby/3.0.0/bin"
+# export PROMPT_COMMAND='echo -en "\033]0; $("pwd") \a"'
+# export DEFAULT_USER=$USER
+export PATH="$PATH:/root/.local/share/gem/ruby/3.0.0/bin:/usr/lib/ruby/gems/3.0.0:/usr/lib/ruby/3.0.0/rubygems/:/usr/lib/ruby/3.0.0/rubygems/core_ext/kernel_require.rb"
 # Created by `pipx` on 2023-11-13 03:10:21
 export PATH="$PATH:/home/shadow42/.local/bin"
 export HISTFILE="$HOME/.zsh_history"
@@ -205,3 +251,9 @@ setopt hist_ignore_all_dups
 set -g bell-action none
 # disable visual bell
 set -g visual-bell off
+#########################################################
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+ eval "$(pyenv init -)"
+fi
