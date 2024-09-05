@@ -5,7 +5,7 @@ This is very basic bash scripts anyone can write, but I find them useful so I am
 ### How to execute bash scripts from anywhere in a secure method to automate life in the terminal. Of course, the word 'secure' is a loaded term. So be careful.  
 ### Security is up to the end user. I am not responsible if you break you install.
 
-## WARNING: The lock_root.sh script can lock you out of your computer if you don't understand how it works. Also if you lose your passwords and you ran lock_root.sh good luck trying to get back in your system. So just make sure you have your passwords. You may be able to recover your passwords in single user mode unless you encrypt the grub partition.
+## WARNING: The lock_root.sh script can lock you out of your computer if you don't understand how it works. Also if you lose your passwords and you ran lock_root.sh good luck trying to get back in your system. So just make sure you have your passwords.
 
 ### Usage:
 1. To use the scripts simply download them or copy the raw to file_name.sh
