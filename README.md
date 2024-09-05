@@ -61,7 +61,7 @@ This is very basic bash scripts anyone can write, but I find them useful so I am
 ## Hack The Box (I highly recommend it)   
 [](https://referral.hackthebox.com/mzw8ktX)
 ## Please support me by clicking my safe affiliate links, Thank you!
-##### You can send me your Github link to colab or inquires to francescoppolla@protonmail.com
+##### You can send me your Github link to colab or inquires to blackarchguruhacker@protonmail.com
     
 
 
