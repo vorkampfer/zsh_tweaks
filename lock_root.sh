@@ -1,11 +1,10 @@
+#!/bin/bash
+
 # I know I can make this shorter but it works
 # Warning you can lock yourself out of your system!
 # You can use the counterpart script unlock_root.sh or do it manually
-# You can add bin bash comment but it isn't necessary to run
-# Recommend using a zsh shell with this because when it locks the shell it assumes zsh
-# Coloring lines usage
-# echo -ne "${redColour}[~]${endcolour} ${yellowColour} Inject ᐅ${endColour} "\
-# echo -ne "${redColour}[~]${endcolour} ${yellowColour} RCE ᐅ${endColour} "\
+
+
 
 function ctrl_c(){
     echo -e "\n\n${redColour}[+] Exiting the function...${endColour}\n"
